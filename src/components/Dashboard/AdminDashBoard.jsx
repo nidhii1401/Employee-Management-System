@@ -1,9 +1,17 @@
-import React from 'react'
+import React from "react";
+import Header from "../Common/Header";
+import CreateTask from "../Common/CreateTask";
+import AllTasks from "../Common/AllTasks";
 
 const AdminDashBoard = () => {
   return (
-    <div>AdminDashBoard</div>
-  )
-}
+    <div className="h-screen w-full p-10">
+      <Header />
+      <CreateTask/>
+      <AllTasks/>
 
-export default AdminDashBoard
+    </div>
+  );
+};
+
+export default AdminDashBoard;
