@@ -1,82 +1,29 @@
-import React from "react";
+import React from 'react'
+import AcceptTask from './AcceptTask'
+import NewTask from './NewTask'
+import CompleteTask from './CompleteTask'
+import FailedTask from './FailedTask'
 
-const ListTasks = () => {
-  return (
-    <div
-      id="tasklist"
-      className="h-[55%] overflow-x-auto w-full py-5 mt-10 flex items-center justify-start gap-5 flex-nowrap"
-    >
-      <div className="flex-shrink-0 h-full p-5 w-[300px] bg-red-400 rounded-xl ">
-        <div className="flex justify-between items-center">
-          <h4 className="text-md bg-red-600 px-3 py-1 rounded">High</h4>
-          <h4 className="text-md">14 Jan, 2025</h4>
+const TaskList = ({ data }) => {
+    return (
+        <div id='tasklist' className='h-[50%] overflow-x-auto flex items-center justify-start gap-5 flex-nowrap w-full py-1 mt-16'>
+            {data.tasks.map((elem, idx) => {
+                if (elem.active) {
+                    return <AcceptTask key={idx} data={elem} />
+                }
+                if (elem.newTask) {
+                    return <NewTask key={idx} data={elem} />
+                }
+                if (elem.completed) {
+                    return <CompleteTask key={idx} data={elem} />
+                }
+                if (elem.failed) {
+                    return <FailedTask key={idx} data={elem} />
+                }
+
+            })}
         </div>
-        <h2 className="mt-5 text-2xl font-semibold">Chai banani hai</h2>
-        <p className="text-sm mt-4">
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolore
-          itaque harum minus quis sunt eligendi!
-        </p>
-      </div>
+    )
+}
 
-      <div className="flex-shrink-0 h-full p-5 w-[300px] bg-green-400 rounded-xl ">
-        <div className="flex justify-between items-center">
-          <h4 className="text-md bg-red-600 px-3 py-1 rounded">High</h4>
-          <h4 className="text-md">14 Jan, 2025</h4>
-        </div>
-        <h2 className="mt-5 text-2xl font-semibold">Chai banani hai</h2>
-        <p className="text-sm mt-4">
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolore
-          itaque harum minus quis sunt eligendi!
-        </p>
-      </div>
-
-      <div className="flex-shrink-0 h-full p-5 w-[300px] bg-blue-400 rounded-xl ">
-        <div className="flex justify-between items-center">
-        <h4 className='text-md bg-red-600 px-3 py-1 rounded'>High</h4>
-
-          <h4 className="text-md">14 Jan, 2025</h4>
-        </div>
-        <h2 className="mt-5 text-2xl font-semibold">Chai banani hai</h2>
-        <p className="text-sm mt-4">
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolore
-          itaque harum minus quis sunt eligendi!
-        </p>
-      </div>
-
-      <div className="flex-shrink-0 h-full p-5 w-[300px] bg-yellow-400 rounded-xl ">
-        <div className="flex justify-between items-center">
-        <h4 className='text-md bg-red-600 px-3 py-1 rounded'>High</h4>
-
-          <h4 className="text-md">14 Jan, 2025</h4>
-        </div>
-        <h2 className="mt-5 text-2xl font-semibold">Chai banani hai</h2>
-        <p className="text-sm mt-4">
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolore
-          itaque harum minus quis sunt eligendi!
-        </p>
-      </div>
-
-      <div className="flex-shrink-0 h-full p-5 w-[300px] bg-orange-400 rounded-xl ">
-        <div className="flex justify-between items-center">
-        <h4 className='text-md bg-red-600 px-3 py-1 rounded'>High</h4>
-
-          <h4 className="text-md">14 Jan, 2025</h4>
-        </div>
-        <h2 className="mt-5 text-2xl font-semibold">Chai banani hai</h2>
-        <p className="text-sm mt-4">
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolore
-          itaque harum minus quis sunt eligendi!
-        </p>
-      </div>
-
-      {/* <div className="flex-shrink-0 h-full w-[300px] bg-yellow-300 rounded-xl"></div>
-        <div className="flex-shrink-0 h-full w-[300px] bg-yellow-300 rounded-xl"></div>
-        <div className="flex-shrink-0 h-full w-[300px] bg-yellow-300 rounded-xl"></div>
-        <div className="flex-shrink-0 h-full w-[300px] bg-yellow-300 rounded-xl"></div>
-        <div className="flex-shrink-0 h-full w-[300px] bg-yellow-300 rounded-xl"></div>
-        <div className="flex-shrink-0 h-full w-[300px] bg-yellow-300 rounded-xl"></div> */}
-    </div>
-  );
-};
-
-export default ListTasks;
+export default TaskList

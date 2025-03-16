@@ -1,4 +1,6 @@
 
+
+
 const employees = [
   {
       "id": 1,
@@ -219,5 +221,7 @@ export const setLocalStorage = () => {
 export const getLocalStorge = () =>{
   const employees = JSON.parse(localStorage.getItem('employees'))
   const admin = JSON.parse(localStorage.getItem('admin'))
+
+  return {employees, admin}
   
 }
